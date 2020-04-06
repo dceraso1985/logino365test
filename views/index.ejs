@@ -1,0 +1,67 @@
+<% ('config_view', JSON.stringify(config_view, null, '\t')) %>
+
+
+<%- include head.ejs %>
+
+<body class="bg-gradient-primary">
+
+  <% if (config_view.view === 'dash') { %>
+
+  <%- include dashboard.ejs %>
+
+  <% } else if (config_view.view === 'auth_approved') { %>
+
+  <%- include internas/auth_approved.ejs %>
+
+  <% } else if (config_view.view === 'auth_rejected') { %>
+
+  <%- include internas/auth_rejected.ejs %>
+
+  <% } else if (config_view.view === 'auth_rejected_for_user') { %>
+
+  <%- include internas/auth_rejected_for_user.ejs %>
+
+  <% } else if (config_view.view === 'no_authorized') { %>
+
+  <%- include internas/no_authorized.ejs %>
+
+  <% } else if (config_view.view === 'auth_send') { %>
+
+  <%- include internas/auth_send.ejs %>
+
+  <% } else if (config_view.view === 'auth_pending') { %>
+
+  <%- include internas/auth_pending.ejs %>
+
+  <% } else if (config_view.view === 'login') { %>
+
+  <%- include internas/login.ejs %>
+
+  <% } else{ %>
+
+  <% switch (config_view.view) 
+    { case 'home' : %>
+  Estoy en Home
+
+  <% break; 
+  
+    case   'eventAdmin' : %>
+  Event Admin
+  <% break; 
+    
+    
+    case 'subAdmin' : %>
+  Sub Admin
+  <%  break; } %>
+
+  <%- include nav.ejs %>
+  <%- include main.ejs %>
+
+  <%- include login.ejs %>
+
+  <% } %>
+
+
+  <!-- /.container -->
+</body>
+<%- include footer.ejs %>

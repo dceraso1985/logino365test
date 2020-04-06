@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET auth callback. */
 router.get('/signin',
-  function  (req, res, next) {
+  function (req, res, next) {
     passport.authenticate('azuread-openidconnect',
       {
         response: res,
@@ -13,12 +13,12 @@ router.get('/signin',
         failureFlash: true,
         successRedirect: '/'
       }
-    )(req,res,next);
+    )(req, res, next);
   }
 );
 
 router.post('/callback',
-  function(req, res, next) {
+  function (req, res, next) {
     passport.authenticate('azuread-openidconnect',
       {
         response: res,
@@ -26,14 +26,14 @@ router.post('/callback',
         failureFlash: true,
         successRedirect: '/'
       }
-    )(req,res,next);
+    )(req, res, next);
   }
 );
 
 router.get('/signout',
-  function(req, res) {
-    req.session.destroy(function(err) {
-      req.logout();
+  function (req, res) {
+    req.session.destroy(function (err) {
+      //req.logout();
       res.redirect('/');
     });
   }
